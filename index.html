@@ -46,7 +46,7 @@ const BASE_SPD=5.5,MAX_SPD=10.0;
 const BASE_GAP=500,MIN_GAP=310;
 const BASE_SPAWN=620,MIN_SPAWN=400;
 
-function diff(){return Math.min(1,score/30);}
+function diff(){return score<=3?0:Math.min(1,(score-3)/27);}
 function getPillarSpd(){return BASE_SPD+(MAX_SPD-BASE_SPD)*diff();}
 function getGapH(){return BASE_GAP+(MIN_GAP-BASE_GAP)*diff();}
 function getSpawnDist(){return BASE_SPAWN+(MIN_SPAWN-BASE_SPAWN)*diff();}
