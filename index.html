@@ -40,13 +40,13 @@ function drawLoading(){
 }
 drawLoading();
 
-const GRAVITY=0.30,JUMP_VEL=-15.0,PILLAR_W=140;
+const GRAVITY=0.25,JUMP_VEL=-14.0,PILLAR_W=140;
 const CHAR_W=130,CHAR_H=166,BIRD_X=W*0.28;
-const BASE_SPD=4.2,MAX_SPD=8.5;
-const BASE_GAP=540,MIN_GAP=340;
-const BASE_SPAWN=720,MIN_SPAWN=450;
+const BASE_SPD=5.5,MAX_SPD=10.0;
+const BASE_GAP=500,MIN_GAP=310;
+const BASE_SPAWN=620,MIN_SPAWN=400;
 
-function diff(){return Math.min(1,score/50);}
+function diff(){return Math.min(1,score/30);}
 function getPillarSpd(){return BASE_SPD+(MAX_SPD-BASE_SPD)*diff();}
 function getGapH(){return BASE_GAP+(MIN_GAP-BASE_GAP)*diff();}
 function getSpawnDist(){return BASE_SPAWN+(MIN_SPAWN-BASE_SPAWN)*diff();}
