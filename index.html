@@ -118,7 +118,7 @@ function update(){
   bird.vy+=GRAVITY*dt;bird.y+=bird.vy*dt;
   bird.angle=Math.min(Math.max(bird.vy*2.2,-35),65);
   const d=diff();
-  if(d<0.2)diffLevel='';else if(d<0.45)diffLevel='RAPIDO';else if(d<0.7)diffLevel='DIFICIL';else diffLevel='INSANO';
+  if(score<3)diffLevel='';else if(score<10)diffLevel='RAPIDO';else if(score<20)diffLevel='INSANO';else diffLevel='FINAL BOSS';
   if(fc%2===0)trails.push({x:bird.x-20,y:bird.y+12+Math.random()*15,vx:-3-Math.random()*1.5,vy:Math.random()*1.5-0.5,life:1,size:4+Math.random()*7,type:'trail'});
   trails.forEach(t=>{t.x+=t.vx*dt;t.y+=t.vy*dt;t.life-=0.032*dt;t.size*=Math.pow(0.97,dt);});trails=trails.filter(t=>t.life>0);
   particles.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=0.035*dt;p.size*=Math.pow(0.96,dt);});particles=particles.filter(p=>p.life>0);
@@ -207,7 +207,7 @@ function drawHUD(){
   cx.font='700 38px "Chakra Petch",sans-serif';cx.fillStyle='rgba(255,255,255,0.65)';
   cx.fillText('RECORD: '+bestScore,50,142);cx.restore();
   if(diffLevel){
-    const colors={RAPIDO:'#FFB800',DIFICIL:'#FF6B00',INSANO:'#FF2040'};
+    const colors={RAPIDO:'#FFB800',INSANO:'#FF6B00','FINAL BOSS':'#FF2040'};
     cx.save();cx.globalAlpha=0.6+Math.sin(fc*0.08)*0.2;
     cx.fillStyle=colors[diffLevel]||'#FF4488';
     cx.font='800 32px "Chakra Petch",sans-serif';cx.textAlign='left';cx.textBaseline='top';
